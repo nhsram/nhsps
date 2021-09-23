@@ -8,15 +8,12 @@ param bandwidthInMbps int
   'Premium'
 ])
 param skuTier string = 'Standard'
-
 @allowed([
   'MeteredData'
   'UnlimitedData'
 ])
 param skuFamily string = 'MeteredData'
-
 param location string = resourceGroup().location
-
 resource circuit 'Microsoft.Network/expressRouteCircuits@2020-06-01' = {
   name: circuitName
   location: location

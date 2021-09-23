@@ -5,7 +5,7 @@ param batchAccountName string
 ])
 param allocationMode string = 'BatchService'
 param location string = resourceGroup().location
-resource batchAccount 'Microsoft.Batch/batchAccounts@2020-09-01' = {
+resource batchAccount 'Microsoft.Batch/batchAccounts@2021-09-22' = {
   name: batchAccountName
   location: location
   properties: {

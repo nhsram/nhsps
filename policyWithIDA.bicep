@@ -1,7 +1,7 @@
 targetScope = 'subscription'
 param listOfAllowedLocations array = [
-  'eastus'
-  'eastus2'
+  'northeurope'
+  'westeurope'
   'westus'
   'westus2'
 ]

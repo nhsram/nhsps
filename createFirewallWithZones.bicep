@@ -10,8 +10,7 @@ param availabilityZones array = [
 ]
 
 var azureFirewallSubnetName = 'AzureFirewallSubnet'
-
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2020-06-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-09-22' = {
   name: virtualNetworkName
   location: location
   properties: {
@@ -23,14 +22,14 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2020-06-01' = {
   }
 }
 
-resource subnet 'Microsoft.Network/virtualNetworks/subnets@2020-06-01' = {
+resource subnet 'Microsoft.Network/virtualNetworks/subnets@2021-09-22' = {
   name: '${virtualNetwork.name}/${azureFirewallSubnetName}'
   properties: {
     addressPrefix: azureFirewallSubnetAddressPrefix
   }
 }
 
-resource publicIP 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
+resource publicIP 'Microsoft.Network/publicIPAddresses@2021-09-22' = {
   name: 'publicIp1'
   location: location
   sku: {
@@ -42,7 +41,7 @@ resource publicIP 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
   }
 }
 
-resource firewall 'Microsoft.Network/azureFirewalls@2020-06-01' = {
+resource firewall 'Microsoft.Network/azureFirewalls@2021-09-22' = {
   name: firewallName
   location: location
   zones: length(availabilityZones) == 0 ? json('null') : availabilityZones

@@ -1,10 +1,9 @@
-param publicIpName string = 'mypublicip'
-module publicIp './publicIpAddress.bicep' = {
+param publicIpName string = 'Test Public IP'
+module publicIp './publicIP.bicep' = {
   name: 'publicIp'
   params: {
     publicIpResourceName: publicIpName
-    dynamicAllocation: true
-    // Parameters with default values may be omitted.
+    dynamicAllocation: true    
   }
 }
 // To reference module outputs

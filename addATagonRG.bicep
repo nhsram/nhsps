@@ -1,9 +1,7 @@
 targetScope = 'managementGroup'
-
 var policyName = 'audit-resource-group-tag-pd'
 var policyDisplayName = 'Audit a tag on resource groups'
 var policyDescription = 'Audits existence of a tag. Does not apply to individual resources.'
-
 resource policy 'Microsoft.Authorization/policyDefinitions@2021-09-23' = {
   name: policyName
   properties: {
@@ -20,7 +18,7 @@ resource policy 'Microsoft.Authorization/policyDefinitions@2021-09-23' = {
         type: 'String'
         metadata: {
           displayName: 'Tag name'
-          description: 'A tag to audit'
+          description: 'Audit Tag'
         }
       }
     }

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\OneDrive - NHS Property Services Ltd\\code\\bicep"
+		},
+		{
+			"name": "nhsps",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "nhsps"
+	}
+}

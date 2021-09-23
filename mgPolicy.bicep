@@ -1,16 +1,13 @@
 targetScope = 'managementGroup'
-
 param targetMG string
 param allowedLocations array = [
-  'australiaeast'
-  'australiasoutheast'
+  'North Europe'
+  'West Europe'
   'australiacentral'
 ]
-
 var mgScope = tenantResourceId('Microsoft.Management/managementGroups', targetMG)
 var policyDefinition = 'LocationRestriction'
-
-resource policy 'Microsoft.Authorization/policyDefinitions@2020-03-01' = {
+resource policy 'Microsoft.Authorization/policyDefinitions@2021-09-22' = {
   name: policyDefinition
   properties: {
     policyType: 'Custom'

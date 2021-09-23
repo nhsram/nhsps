@@ -1,6 +1,6 @@
 param logicAppName string = 'BicepLogicApp'
 param testUri string = 'http://status.azure.com/en-us/status/'
-param location string = 'usgovvirginia'
+param location string = 'North Europe'
 
 var frequency = 'Hour'
 var interval = '1'

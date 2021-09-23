@@ -1,4 +1,3 @@
-// Also: 
 // * KeyVaults secrets CANNOT BE EXPORTED into ARM/Bicep format via the Template Export capability. 
 // * documentation on key vault secret resource types: 
 //   https://docs.microsoft.com/en-us/azure/templates/microsoft.keyvault/vaults/secrets?tabs=json

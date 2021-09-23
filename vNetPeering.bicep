@@ -3,7 +3,7 @@ param localVnetName string
 param remoteVnetName string
 param remoteVnetRg string
 
-resource peer 'microsoft.network/virtualNetworks/virtualNetworkPeerings@2020-05-01' = {
+resource peer 'microsoft.network/virtualNetworks/virtualNetworkPeerings@2021-09-22' = {
   name: '${localVnetName}/peering-to-remote-vnet'
   properties: {
     allowVirtualNetworkAccess: true

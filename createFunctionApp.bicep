@@ -1,6 +1,4 @@
-// The following will create an Azure Function app on
-// a consumption plan, along with a storage account
-// and application insights.
+// The following will create an Azure Function app on a consumption plan, along with a storage account and application insights.
 
 param location string = resourceGroup().location
 param functionRuntime string = 'dotnet'
@@ -11,17 +9,14 @@ param workspaceResourceId string
 var functionAppName = '${appNamePrefix}-functionapp'
 var appServiceName = '${appNamePrefix}-appservice'
 var appInsightsName = '${appNamePrefix}-appinsights'
-
-// remove dashes for storage account name
 var storageAccountName = format('{0}sta', replace(appNamePrefix, '-', ''))
-
 var appTags = {
-  AppID: 'myfunc'
-  AppName: 'My Function App'
+  AppID: 'testfunction'
+  AppName: 'Test Function App'
 }
 
 // Storage Account
-resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-09-22' = {
   name: storageAccountName
   location: location
   sku: {
@@ -50,7 +45,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 
 // Blob Services for Storage Account
-resource blobServices 'Microsoft.Storage/storageAccounts/blobServices@2019-06-01' = {
+resource blobServices 'Microsoft.Storage/storageAccounts/blobServices@2021-09-22' = {
   parent: storageAccount
 
   name: 'default'
@@ -80,7 +75,7 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02-preview' = {
 }
 
 // App Service
-resource appService 'Microsoft.Web/serverFarms@2020-06-01' = {
+resource appService 'Microsoft.Web/serverFarms@2021-09-22' = {
   name: appServiceName
   location: location
   kind: 'functionapp'
@@ -105,7 +100,7 @@ resource appService 'Microsoft.Web/serverFarms@2020-06-01' = {
 }
 
 // Function App
-resource functionApp 'Microsoft.Web/sites@2020-06-01' = {
+resource functionApp 'Microsoft.Web/sites@2021-09-22' = {
   name: functionAppName
   location: location
   kind: 'functionapp'
@@ -167,9 +162,8 @@ resource functionApp 'Microsoft.Web/sites@2020-06-01' = {
 }
 
 // Function App Config
-resource functionAppConfig 'Microsoft.Web/sites/config@2020-06-01' = {
+resource functionAppConfig 'Microsoft.Web/sites/config@2021-09-22' = {
   parent: functionApp
-
   name: 'web'
   properties: {
     numberOfWorkers: -1
@@ -243,9 +237,8 @@ resource functionAppConfig 'Microsoft.Web/sites/config@2020-06-01' = {
     preWarmedInstanceCount: 0
   }
 }
-
 // Function App Binding
-resource functionAppBinding 'Microsoft.Web/sites/hostNameBindings@2020-06-01' = {
+resource functionAppBinding 'Microsoft.Web/sites/hostNameBindings@2021-09-22' = {
   parent: functionApp
 
   name: '${functionApp.name}.azurewebsites.net'

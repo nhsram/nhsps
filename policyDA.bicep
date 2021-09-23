@@ -1,16 +1,13 @@
 targetScope = 'subscription'
-
 param listOfAllowedLocations array = [
-  'norwayeast'
+  'northeurope'
   'westeurope'
 ]
-
 @allowed([
   'Audit'
   'Deny'
 ])
 param policyEffect string
-
 resource locationPolicyDefinition 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
   name: 'custom-allowed-location'
   properties: {
@@ -52,7 +49,7 @@ resource locationPolicyDefinition 'Microsoft.Authorization/policyDefinitions@202
   }
 }
 
-resource locationPolicy 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
+resource locationPolicy 'Microsoft.Authorization/policyAssignments@2021-09-22' = {
   name: 'Resource-location-restriction'
   properties: {
     policyDefinitionId: locationPolicyDefinition.id

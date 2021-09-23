@@ -1,10 +1,9 @@
 targetScope = 'managementGroup'
-
 var policyName = 'audit-resource-tag-and-value-format-pd'
 var policyDisplayName = 'Audit a tag and its value format on resources'
 var policyDescription = 'Audits existence of a tag and its value format. Does not apply to resource groups.'
 
-resource policy 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
+resource policy 'Microsoft.Authorization/policyDefinitions@2021-09-22' = {
   name: policyName
   properties: {
     displayName: policyDisplayName

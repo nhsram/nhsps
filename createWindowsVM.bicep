@@ -14,13 +14,11 @@ param dnsLabelPrefix string
 ])
 @description('The Windows version for the VM. This will pick a fully patched image of this given Windows version.')
 param windowsOSVersion string = '2016-Datacenter'
-
 @description('Size of the virtual machine.')
 param vmSize string = 'Standard_D2_v3'
 
 @description('location for all resources')
 param location string = resourceGroup().location
-
 var storageAccountName = concat(uniqueString(resourceGroup().id), 'sawinvm')
 var nicName = 'myVMNic'
 var addressPrefix = '10.0.0.0/16'
@@ -50,7 +48,6 @@ resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
     }
   }
 }
-
 resource sg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
   name: networkSecurityGroupName
   location: location
@@ -94,7 +91,6 @@ resource vn 'Microsoft.Network/virtualNetworks@2020-06-01' = {
     ]
   }
 }
-
 resource nInter 'Microsoft.Network/networkInterfaces@2020-06-01' = {
   name: nicName
   location: location
@@ -161,5 +157,4 @@ resource VM 'Microsoft.Compute/virtualMachines@2020-06-01' = {
     }
   }
 }
-
 output hostname string = pip.properties.dnsSettings.fqdn
