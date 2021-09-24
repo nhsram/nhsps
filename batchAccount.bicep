@@ -12,4 +12,5 @@ resource batchAccount 'Microsoft.Batch/batchAccounts@2021-09-22' = {
     poolAllocationMode: allocationMode
   }
 }
+
 output batchaccountFQDN string = batchAccount.properties.accountEndpoint
